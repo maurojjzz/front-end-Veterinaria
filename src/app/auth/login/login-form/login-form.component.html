@@ -1,12 +1,12 @@
-<form class="form d-flex flex-column justify-content-evenly h-100 align-items-center">
+<form [formGroup]="formLoginUser" (ngSubmit)="enviarform()" class="form d-flex flex-column justify-content-evenly h-100 align-items-center">
     <h1 class="title text-center">Welcome Back!</h1>
     <div class="d-flex flex-column gap-5 ">
         <div class="form-floating">
-            <input id="InputEmail" type="text" autocomplete="off" class="form-control form-inputs" placeholder="Ingrese su email" >
+            <input formControlName="email" id="InputEmail" type="text" autocomplete="off" class="form-control form-inputs pb-1" placeholder="Ingrese su email" >
             <label for="InputEmail" class="mt-1 form-login-label fw-medium fs-6">Email</label>
         </div>
         <div class="form-floating">
-            <input id="InputPassword" type="password" autocomplete="off" class="form-control form-inputs" placeholder="Ingrese Constraseña" >
+            <input formControlName="password" id="InputPassword" type="password" autocomplete="off" class="form-control form-inputs pb-1" placeholder="Ingrese Constraseña" >
             <label for="InputPassword" class="mt-1 form-login-label fw-medium fs-6">Password</label>
         </div>
     </div>
