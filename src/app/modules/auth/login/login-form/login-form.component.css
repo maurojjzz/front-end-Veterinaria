@@ -1,0 +1,53 @@
+.form{
+    min-height: 530px;
+    max-height: 730px;
+}
+.forgotPass{
+    color: #f08125e6;
+}
+.cursor, 
+.forgotPass{
+    cursor: pointer;
+}
+.title{
+    font-size: 30px;
+    font-weight: 700;
+    color:#252F48;
+}
+.form-floating{
+    user-select: none;
+}
+.form-inputs{
+    width: 240px;
+    height: 45px;
+    border: 1px solid #1BBCB6;   
+    box-shadow: 10px 7px 15px 0px rgba(27, 188, 182, 0.18);
+}
+.form-inputs:focus{
+    border: 3px solid #1BBCB6;   
+}
+.buttonForm{
+    width: 240px;
+    height: 45px;
+    background-color:#1BBCB6;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid #1BBCB6;
+}
+.buttonForm[disabled] {
+    cursor: not-allowed;
+}
+.form-login-label{
+    color: #1BBCB6;
+}
+
+@media (min-width: 992px) {
+    .form{
+        min-height: 625px;
+    }
+    .form-inputs{
+        width: 350px;
+    }
+    .buttonForm{
+        width: 350px;
+    }
+  }

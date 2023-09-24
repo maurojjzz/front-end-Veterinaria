@@ -10,10 +10,10 @@
             <label for="InputPassword" class="mt-1 form-login-label fw-medium fs-6">Password</label>
         </div>
     </div>
-    <button mat-button class="buttonForm text-white text-uppercase fs-5 " >login</button>
+    <button mat-button class="buttonForm text-white text-uppercase fs-5" [disabled]="!formLoginUser.valid">login</button>
     <div>
         <p class="forgotPass fw-medium text-center ">Forgot password?</p>
-        <p class="cursor fw-normal text-center">Don't have an account? 
+        <p (click)="registroForm()" class="cursor fw-normal text-center">Don't have an account? 
             <span class="forgotPass fw-medium">Sign Up</span></p>
     </div>
 </form>
