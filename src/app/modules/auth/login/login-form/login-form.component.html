@@ -1,16 +1,28 @@
 <form [formGroup]="formLoginUser" (ngSubmit)="enviarform()" class="form d-flex flex-column justify-content-evenly h-100 align-items-center">
-    <h1 class="title text-center">Welcome Back!</h1>
+    <h1 class="title text-center">Login</h1>
     <div class="d-flex flex-column gap-5 ">
         <div class="form-floating">
-            <input formControlName="email" id="InputEmail" type="text" autocomplete="off" class="form-control form-inputs pb-1" placeholder="Ingrese su email" >
-            <label for="InputEmail" class="mt-1 form-login-label fw-medium fs-6">Email</label>
+            <input formControlName="email" id="InputEmail" type="text" autocomplete="off" class="form-control form-inputs pb-1" [ngClass]="{'is-invalid invalidInputs': !email.valid && email.touched}" placeholder="Ingrese su email" >
+            <label for="InputEmail" class="mt-1 form-login-label fw-medium fs-6" [ngClass]="{'invalidLabel': !email.invalid}">Email</label>
+            <div class="spaceBox mt-3" *ngIf="formLoginUser.get('email')?.pristine && formLoginUser.get('email')?.untouched"></div>
+            <div class="boxErrorMsj mt-3 text-center" *ngIf="formLoginUser.get('email')?.dirty && formLoginUser.get('email')?.invalid || formLoginUser.get('email')?.touched">
+                <p *ngIf="formLoginUser.get('email')?.hasError('required')">Email is required.</p>
+                <p *ngIf="formLoginUser.get('email')?.hasError('email')">Email format is wrong</p>
+            </div>
         </div>
-        <div class="form-floating">
-            <input formControlName="password" id="InputPassword" type="password" autocomplete="off" class="form-control form-inputs pb-1" placeholder="Ingrese Constraseña" >
-            <label for="InputPassword" class="mt-1 form-login-label fw-medium fs-6">Password</label>
+       
+        <div class="form-floating" >
+            <input formControlName="password" id="InputPassword" type="password" autocomplete="off" class="form-control form-inputs pb-1" [ngClass]="{'is-invalid invalidInputs': !password.valid && password.touched}" placeholder="Ingrese Constraseña" >
+            <label for="InputPassword" class="mt-1 form-login-label fw-medium fs-6" [ngClass]="{'invalidLabel': !password.invalid}">Password</label>
+            <div class="spaceBoxPsw mt-3" *ngIf="formLoginUser.get('password')?.pristine  && formLoginUser.get('password')?.untouched"></div>
+            <div class="boxErrorMsjPsw mt-3 text-center" *ngIf="formLoginUser.get('password')?.dirty && formLoginUser.get('password')?.invalid || formLoginUser.get('password')?.touched">
+                <p *ngIf="formLoginUser.get('password')?.hasError('required')">Password is required.</p>
+                <p *ngIf="formLoginUser.get('password')?.hasError('pattern')"> Needs minimum 8 chars, 1 Uppercase and 1 number 
+                </p>
+            </div>
         </div>
     </div>
-    <button mat-button class="buttonForm text-white text-uppercase fs-5" [disabled]="!formLoginUser.valid">login</button>
+    <button mat-button class="buttonForm text-white text-uppercase fs-5 " [disabled]="!formLoginUser.valid">login</button>
     <div>
         <p class="forgotPass fw-medium text-center ">Forgot password?</p>
         <p (click)="registroForm()" class="cursor fw-normal text-center">Don't have an account? 

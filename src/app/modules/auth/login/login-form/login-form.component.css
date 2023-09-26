@@ -36,18 +36,52 @@
 .buttonForm[disabled] {
     cursor: not-allowed;
 }
-.form-login-label{
+.form-login-label,
+.form-floating .form-control ~ label{
     color: #1BBCB6;
+}
+.invalidInputs{
+    border: 1px solid #f72222ed;
+}
+.form-inputs.is-invalid:focus{
+    border: 2px solid #f72222ed;
+}
+.form-inputs.is-invalid{ 
+    box-shadow: 10px 7px 15px 0px rgba(188, 27, 27, 0.18);
+}
+.invalidLabel,
+.form-floating .form-control.is-invalid ~ label,
+.form-floating .form-control.is-invalid:focus ~ label{
+    color: #f72222ed ;
+}
+.spaceBox{
+    border: 1px solid transparent;
+    height: 25px; 
+}
+.spaceBoxPsw{
+    border: 1px solid transparent;
+    height: 50px;
+}
+.boxErrorMsj{
+    color: #f72222ed;
+    overflow: hidden;
+    width: 240px;
+}
+.boxErrorMsjPsw{
+    color: #f72222ed;
+    overflow: hidden;
+    width: 240px;
+    height: 50px;
 }
 
 @media (min-width: 992px) {
     .form{
         min-height: 625px;
     }
+    .boxErrorMsj,
+    .boxErrorMsjPsw,
+    .buttonForm, 
     .form-inputs{
-        width: 350px;
-    }
-    .buttonForm{
         width: 350px;
     }
   }
